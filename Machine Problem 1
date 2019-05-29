@@ -9,40 +9,40 @@ using namespace std;
 int main()
 
 {
-	int quiz[50], acts[50], prelims[50], finals[50];									//declaring the variables as arrays
+	int quiz[50], acts[50], prelims[50], finals[50];								//declaring the variables as arrays
 	double grade[50], quiztotal[50], actstotal[50], exams[50];
 	string names[50];
 
 	for (int i=0; i<50;i++)
 	{
 		cout << "Input name: ";
-		getline (cin,names[i]); 																//will allow names to be inputted
+		getline (cin,names[i]); 										//will allow names to be inputted
 		cout << "Input total score in quizzes (out of 450): ";
-		cin >> quiz[i]; 																//total score in all 9 quizzes
+		cin >> quiz[i]; 											//total score in all 9 quizzes
 		cout << "Input total score in activities (out of 1350): ";
-		cin >> acts[i]; 																//total score in all activities
+		cin >> acts[i]; 											//total score in all activities
 		cout << "Input total score in prelim exams (out of 100): ";
-		cin >> prelims[i]; 																//score in the prelim exams
+		cin >> prelims[i]; 											//score in the prelim exams
 		cout << "Input total score in final exams (out of 100): ";
 		cin >> finals[i]; 	
-		cin.ignore();															//score in the final exams
+		cin.ignore();												//score in the final exams
 
-		quiztotal[i] = ((quiz[i]*100)/450) * 0.30;										//we used this formula to be safe
+		quiztotal[i] = ((quiz[i]*100)/450) * 0.30;								//we used this formula to be safe
 		actstotal[i] =  ((acts[i]*100)/1350) * 0.15;
 		exams[i] = (((prelims[i]*100)/100) * 0.25) + (((finals[i]*100)/100) * 0.30);
-		grade[i] = quiztotal[i] + actstotal[i] + exams[i];								//simply adding the three will give us the raw grade
+		grade[i] = quiztotal[i] + actstotal[i] + exams[i];							//simply adding the three will give us the raw grade
 
-		if (quiz[i]>450 || acts[i]>1350 || prelims[i]>100 || finals[i]>100)				//inputting invalid scores will break the code immediately
+		if (quiz[i]>450 || acts[i]>1350 || prelims[i]>100 || finals[i]>100)					//inputting invalid scores will break the code immediately
 		{
 			cout << "Please enter valid scores" << endl;
 			cout << endl;
 			break;
 	 	}
-		else 																			//will output the raw grade if valid scores are entered
+		else 													//will output the raw grade if valid scores are entered
 		{
 			cout << "Raw grade: " << grade[i] << endl;
 		}
-			if (grade[i] > 95.57)														//will output the GPA based on the raw grade
+			if (grade[i] > 95.57)										//will output the GPA based on the raw grade
 			{
 			cout << "GPA: " << fixed << setprecision (2) << 1.00;
 	 		}
@@ -102,20 +102,20 @@ for (m = 0; m < size; m++)
 	{
 		for (j = m + 1; j < size; j++)
 		{
-			if (grade[m] < grade[j])           										 //Compare and swap grade pero grades lang so..
+			if (grade[m] < grade[j])           			 //Compare and swap grade pero grades lang so..
 			{
 			    tmp = grade[m];
 				grade[m] = grade[j];
 				grade[j] = tmp;
 
-				temp = names[m];                									//after comparing grades, if there's a change the names will also be swap
+				temp = names[m];                		//after comparing grades, if there's a change the names will also be swap
 				names[m] = names[j];
 				names[j] = temp;
 			}
 		}
 	 }
 
-	cout << "The top 10 performing students" << endl;								//output the top 10 highest grades
+	cout << "The top 10 performing students" << endl;			//output the top 10 highest grades
 int sizeb = 10;
 	for(m = 0; m < sizeb; m++)
 	{
