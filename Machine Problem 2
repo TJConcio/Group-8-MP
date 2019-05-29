@@ -1,0 +1,117 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <conio.h>
+
+using namespace std;
+	
+int main()
+{
+    
+    float a, b, c, Area, Height, I, s, P, Apothem, Ccenter;							//declaring the variables as float
+   
+    	cout << "Enter the length of side A: "; 								//will allow all sides of the triangle to be inputted
+    	cin >> a;
+  
+    	cout << "Enter the length of B: ";
+    	cin >> b;
+    
+    	cout << "Enter the length of side C: ";
+    	cin >> c;
+    	
+    	
+    	cout << "\n"; 
+    
+
+	if (a < 0 || b < 0 || c < 0 || (a + b <= c) || a + c <= b || b + c <= a)
+	{
+    	cout<<"Invalid input\n"<<endl;
+    	cout<<"You dont have triangle!"<<endl;
+		return 0;																			//return 0 to end the program if the user input a invalid numbers
+    
+	}		
+
+	if (a==b && b==c)    
+	{
+		cout << "Equilateral triangle\n";
+	
+	Apothem = a / (2 * tan(60));
+	cout << "The length of Apothem is: " << Apothem << endl; 						//apothem is for equilateral triangle only
+	
+	Ccenter = (a*b*c) / ((sqrt(a+b+c))* (c+a-b) * (b+c-a) * (a+b-c));
+	cout << "The length of Circumcenter is: " << Ccenter << endl;					//circumcenter is for equilateral triangle only
+	}                
+
+	else if (a == b || b == c)															//to get an isosceles triangle, 2 sides must be equal
+	{
+		cout << "Isosceles triangle\n";
+		cout << "No Apothem!\n";														//no apothem and circumcenter in isosceles triangle
+		cout << "No Cimcumcenter!\n";
+   }     
+	
+	else 
+	{
+		cout << "Scalene triangle\n"; 
+		cout << "No Apothem!\n";														//no apothem and circumcenter in isosceles triangle
+		cout << "No Cimcumcenter!\n";  
+	}               
+
+    
+    cout << "\n"; 
+	
+	s=(a+b+c)/2;
+	
+	Area=sqrt(s*(s-a)*(s-b)*(s-c));													//to get the area of the triangle, 0.5*base*height but sides of the tringles is only given
+	
+		cout<<"Area of triangle is : "<< Area << endl;
+	
+	P=(a+b+c);																		// all side must be added to get the perimeter of the triangle
+	
+		cout<<"The perimeter of triangle is : "<< P << endl;
+
+    
+	if (a + b > c) 
+	{
+		cout << "Acute triangle\n";
+	
+	} 
+	else if (a + b == c) 
+	{
+		cout << "Right triangle\n";
+	
+	}
+  
+	else
+	{
+		cout << "Obtuse triangle\n";
+	}
+	
+		cout << "\n"; 
+
+	double PI = 3.1415926535;															// declaring the value of PI as double
+
+	int a2 = a*a;																		//to compute the angle A,B,C, value of Pi is needed
+	int b2 = b*b; 
+	int c2 = c*c;
+	
+	cout << "\n"; 
+  
+	float angleA = acos((b2 + c2 - a2)/(2*b*c));
+	angleA = angleA * 180 / PI; 
+    
+		cout << "angle A is " << angleA << " degrees" <<endl;
+ 
+	float angleB = acos((a2 + c2 - b2)/(2*a*c)); 
+	angleB = angleB * 180 / PI; 
+    
+		cout << "angle B is " << angleB << " degrees" <<endl;
+	
+	float angleC = acos((a2 + b2 - c2)/(2*a*b));
+	angleC = angleC * 180 / PI; 
+    
+		cout << "angle C is " << angleC << " degrees" <<endl;
+ 
+_getch();
+return 0;
+}
+
